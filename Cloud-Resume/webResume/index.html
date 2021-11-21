@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            fetch('https://v0twnlxua0.execute-api.us-east-1.amazonaws.com/Prod/hello')
+                .then(response => response.json())
+                .then((data) => {
+                    document.getElementById('replaceme').innerText = data.count
+                })
+        </script>
+        
+        <style>
+            p {
+                color: blue;
+                font-size: xx-large;
+            }
+        </style>
+    </head>
+    <body>
+        <p>My Resume Challenge </p>
+        <p>Visitors: 
+            <span id="replaceme" ></span>
+        </p>
+    </body>
+</html>
