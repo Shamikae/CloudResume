@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: 'Cloud-Resume
 
-  Sample SAM Template for Cloud-Resume
+  Template
 
   '
 Globals:
@@ -16,6 +16,17 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
       BucketName: my-fantastic-websitese
+  DynamoDBTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: cloud-resume
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: ID
+        AttributeType: S
+      KeySchema:
+      - AttributeName: ID
+        KeyType: HASH
   MyRoute53Record:
     Type: AWS::Route53::RecordSetGroup
     Properties:
@@ -79,11 +90,11 @@ Resources:
               - /*
       Bucket:
         Ref: MyWebsite
-  HelloWorldFunction:
+  PutFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: HelloWorldFunction
-      Handler: hello-world
+      CodeUri: PutFunction
+      Handler: put-function
       Runtime: go1.x
       Architectures:
       - x86_64
@@ -92,7 +103,22 @@ Resources:
         CatchAll:
           Type: Api
           Properties:
-            Path: /hello
+            Path: /put
+            Method: GET
+  GetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GetFunction
+      Handler: get-function
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /get
             Method: GET
       Environment:
         Variables:
@@ -101,16 +127,16 @@ Outputs:
   HelloWorldAPI:
     Description: API Gateway endpoint URL for Prod environment for First Function
     Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
-  HelloWorldFunction:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/get/
+  GetFunction:
     Description: First Lambda Function ARN
     Value:
       Fn::GetAtt:
-      - HelloWorldFunction
+      - GetFunction
       - Arn
-  HelloWorldFunctionIamRole:
+  GetFunctionIamRole:
     Description: Implicit IAM Role created for Hello World function
     Value:
       Fn::GetAtt:
-      - HelloWorldFunctionRole
+      - GetFunctionRole
       - Arn
