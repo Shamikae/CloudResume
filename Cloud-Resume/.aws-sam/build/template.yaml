@@ -93,6 +93,9 @@ Resources:
   PutFunction:
     Type: AWS::Serverless::Function
     Properties:
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: cloud-resume
       CodeUri: PutFunction
       Handler: put-function
       Runtime: go1.x
