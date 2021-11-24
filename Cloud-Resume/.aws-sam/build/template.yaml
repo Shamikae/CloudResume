@@ -90,6 +90,24 @@ Resources:
               - /*
       Bucket:
         Ref: MyWebsite
+  GetFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName: cloud-resume
+      CodeUri: GetFunction
+      Handler: get-function
+      Runtime: go1.x
+      Architectures:
+      - x86_64
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /get
+            Method: GET
   PutFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -107,21 +125,6 @@ Resources:
           Type: Api
           Properties:
             Path: /put
-            Method: GET
-  GetFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: GetFunction
-      Handler: get-function
-      Runtime: go1.x
-      Architectures:
-      - x86_64
-      Tracing: Active
-      Events:
-        CatchAll:
-          Type: Api
-          Properties:
-            Path: /get
             Method: GET
       Environment:
         Variables:

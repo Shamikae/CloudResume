@@ -11,3 +11,6 @@ deploy-site:
 
 invoke-put:
 	sam build && aws-vault exec my-user --no-session -- sam local invoke PutFunction
+
+invoke-get:
+	sam build && aws-vault exec my-user --no-session -- sam local invoke GetFunction
