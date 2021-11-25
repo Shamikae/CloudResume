@@ -1,0 +1,10 @@
+//Colors
+$bg-color: hsl(0, 0%, 85%);
+$bg-color-light: hsl(0, 0%, 95%);
+$bg-color-dark: hsl(0, 0%, 55%);
+
+@import "general";
+@import "sidebar";
+@import "main-content";
+@import "media-1";
+@import "media-2";

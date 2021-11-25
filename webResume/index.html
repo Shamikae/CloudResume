@@ -1,25 +1,271 @@
-<html>
-    <head>
-        <script>
-            fetch('https://v0twnlxua0.execute-api.us-east-1.amazonaws.com/Prod/put')
-                .then(() => fetch('https://v0twnlxua0.execute-api.us-east-1.amazonaws.com/Prod/get'))
-                .then(response => response.json())
-                .then((data) => {
-                    document.getElementById('replaceme').innerText = data.count
-                })
-        </script>
-        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-        <style>
-            p {
-                color: blue;
-                font-size: xx-large;
-            }
-        </style>
-    </head>
-    <body>
-        <p>My Resume </p>
-        <p>Visitors: 
-            <span id="replaceme" ></span>
-        </p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shamika's Resume</title>
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <!-- SIDEBAR START -->
+    <div class="sidebar">
+        <i class='bx bx-menu' id="btn"></i>
+
+        <!-- PROFILE IMAGE -->
+        <div class="profile">
+            <img src="./images/MeImage.GIF" alt="profile image">
+            <div class="name">
+                Shamika <span>Earle</span>
+            </div>
+            <div class="position">Full Stack Developer</div>
+        </div>
+
+        <!-- PERSONAL INFO -->
+        <section class="personal-info">
+
+            <div class="property">
+                <i class='bx bx-calendar' ></i>
+                <span class="property-name" id="datetime"></span>
+                <script>var dt = new Date();
+                    document.getElementById("datetime").innerHTML=dt.toLocaleString();
+                    </script>    
+            </div>
+
+            <div class="property">
+                <i class='bx bx-mail-send' ></i>
+                <span class="property-name">eshamika@icloud.com</span>
+            </div>
+
+            <div class="property">
+                <i class='bx bx-phone-call' ></i>
+                <span class="property-name">+(XXX)XXX-XXXX</span>
+            </div>
+
+            <div class="property">
+                <i class='bx bx-home' ></i>
+                <span class="property-name">
+                    <span>New York</span> 
+                    <span>New York,</span> 
+                    <span>USA</span>
+                </span>
+            </div>
+
+        </section>
+
+        <!-- SOCIAL MEDIA -->
+        <section class="social-media">
+            <a href="#"><i class='bx bxl-github' ></i></a>
+            <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+        </section>
+        <section class="visit-count">
+            <p>Visitors: 
+                <span id="replaceme" ></span>
+            </p>
+        </section>
+    </div>
+    <!-- SIDEBAR END -->
+
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+        <div class="cv-item">
+            <div class="cv-item-logo">
+                <i class='bx bx-briefcase-alt-2' ></i>
+            </div>
+            <div class="cv-item-titel">
+                <div class="titel-name">Work Experience</div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="cv-item-content">
+            <div class="date">06/2021-09/2021</div>
+            <div class="description">
+                <strong>Software Engineer</strong>
+                <p>@ Storj Labs</p>
+                <p>Building a new web app with React. New features were developed to meet the user needs.</p>
+            </div>
+        </div>
+
+        <div class="cv-item-content">
+            <div class="date">06/2018-03/2020</div>
+            <div class="description">
+                <strong>Technical Support Engineer</strong>
+                <p>@ P.C. Richard and Son</p>
+                <p>Designing and implementing HTML email templates and newsletters for marketing campaigns.</p>
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="cv-item">
+            <div class="cv-item-logo">
+                <i class='bx bxs-graduation' ></i>
+            </div>
+            <div class="cv-item-titel">
+                <div class="titel-name">Education</div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="cv-item-content">
+            <div class="date">09/2018-05/2022</div>
+            <div class="description">
+                <p><strong>Bachelor's Degree</strong> in Computer Programing,</p>
+                <p>Farmingdale State University</p>
+            </div>
+        </div>
+
+        <div class="cv-item-content">
+            <div class="date">09/2020-01/2021</div>
+            <div class="description">
+                <p><strong>Certification</strong> in Software Engineering,</p>
+                <p>Nebula Academy</p>
+            </div>
+        </div>
+
+
+        <!-- SKILLS -->
+        <div class="cv-item">
+            <div class="cv-item-logo">
+                <i class='bx bx-laptop' ></i>
+            </div>
+            <div class="cv-item-titel">
+                <div class="titel-name">Skills</div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="cv-item-content no-border">
+            <div class="wrapper">
+
+                <div class="item-with-logo">
+                    <i class='bx bxl-html5' ></i>HTML5
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-javascript' ></i>Javascript
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-nodejs' ></i>Node.js
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-visual-studio' ></i>VSC
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-react' ></i>React
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-sass' ></i>Sass
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-bootstrap'></i>Bootstrap
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-c-plus-plus'></i>C++
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-python' ></i>Python
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-docker'></i></i>Docker
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-kubernetes'></i>Kubernetes
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-css3'></i>Css
+                </div>
+                <div class="item-with-logo">
+                    <i class='bx bxl-tux'></i>Linux
+                </div>
+                
+                <div class="item-with-logo">
+                    <i class='bx bxl-aws'></i>AWS
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="cv-item">
+            <div class="cv-item-logo">
+                <i class='bx bx-conversation' ></i>
+            </div>
+            <div class="cv-item-titel">
+                <div class="titel-name">Languages</div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="cv-item-content no-border">
+            <div class="wrapper">
+
+                <div class="item-with-logo">
+                    <div class="language">DE</div> Germany
+                </div>
+
+                <div class="item-with-logo">
+                    <div class="language">EN</div> English [B2]
+                </div>
+
+                <div class="item-with-logo">
+                    <div class="language">Ru</div> Russian [A2]
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INTERESTS -->
+        <div class="cv-item">
+            <div class="cv-item-logo">
+                <i class='bx bxs-tennis-ball' ></i>
+            </div>
+            <div class="cv-item-titel">
+                <div class="titel-name">Interests</div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="cv-item-content no-border">
+            <div class="wrapper">
+
+                <div class="item-with-logo">
+                    <i class='bx bx-code-alt' ></i> Coding
+                </div>
+
+                <div class="item-with-logo">
+                    <i class='bx bx-cycling' ></i> Cycling
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <script>
+        fetch('https://v0twnlxua0.execute-api.us-east-1.amazonaws.com/Prod/put')
+            .then(() => fetch('https://v0twnlxua0.execute-api.us-east-1.amazonaws.com/Prod/get'))
+            .then(response => response.json())
+            .then((data) => {
+                document.getElementById('replaceme').innerText = data.count
+            })
+    </script>
+    <script>
+        const btnHamburger = document.querySelector('#btn');
+        const sidebar = document.querySelector('.sidebar');
+
+        btnHamburger.addEventListener('click', function(){
+            sidebar.classList.toggle('active');
+        });
+    </script>
+    
+</body>
 </html>

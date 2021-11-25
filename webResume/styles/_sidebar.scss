@@ -1,0 +1,197 @@
+.sidebar {
+    //non active state
+    background-color: $bg-color;
+    width: 7rem;
+    height: 100%;
+    position: fixed;
+    padding: 2rem 1rem;
+    z-index: 100;
+
+    #btn {
+        font-size: 3rem;
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+        margin-bottom: 2rem;
+
+        &:hover {
+            background-color: $bg-color-light;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .profile {
+        img {
+            width: 100%;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .name {
+            font-size: 1rem;
+            font-weight: 700;
+            writing-mode: sideways-lr;
+            text-align: center;
+            margin: 2rem 0rem;
+
+            span {
+                // text-transform: uppercase;
+                display: block;
+            }
+        }
+
+        .position {
+            display: none;
+        }
+    }
+
+    .personal-info {
+        margin-top: 2rem;
+
+        .property {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            position: relative;
+
+            &:hover {
+                background-color: $bg-color-light;
+                border-radius: 0.5rem;
+                border-right: 2px solid $bg-color-dark;
+                cursor: pointer;
+
+                .property-name {
+                    display: block;
+                    position: absolute;
+                    left: 105%;
+                    width: fit-content;
+                    background-color: $bg-color-light;
+                    white-space: nowrap;
+                    padding: 0.8rem;
+                    border-top-right-radius: 0.5rem;
+                    border-bottom-right-radius: 0.5rem;
+                    border-right: 2px solid $bg-color-dark;
+                }
+            }
+
+            &:last-child {
+                &:hover {
+                    .property-name {
+                        white-space: unset;
+                        top: 0;
+
+                        span {
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+
+            i {
+                font-size: 3rem;
+            }
+
+            .property-name {
+                font-size: 1.5rem;
+                display: none;
+            }
+        }
+    }
+
+    .social-media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 4rem;
+
+        font-size: 3rem;
+
+        i {
+            padding: 0.8rem;
+            &:hover {
+                background-color: $bg-color-light;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+
+
+
+
+    &.active {
+        //active state
+        width: 26rem;
+        padding: 4rem 2rem;
+
+        #btn {
+            width: fit-content;
+        }
+
+        .profile {
+            img {
+                border-width: 4px;
+            }
+
+            .name {
+                text-align: center;
+                writing-mode: unset;
+                font-size: 3rem;
+            }
+
+            .position {
+                display: block;
+                background-color: $bg-color-dark;
+                text-align: center;
+                padding: 0.2rem;
+                border-radius: 0.4rem;
+                font-size: 1.4rem;
+                color: white;
+                letter-spacing: 0.2rem;
+            }
+        }
+
+        .personal-info {
+            .property {
+                justify-content: flex-start;
+
+                i {
+                    font-size: 2rem;
+                    margin-right: 1rem;
+                }
+
+                .property-name {
+                    display: block;
+                    font-size: 1.6rem;
+                }
+
+                &:hover {
+                    background-color: $bg-color;
+                    cursor: default;
+                    border: unset;
+
+                    .property-name {
+                        position: unset;
+                        background-color: $bg-color;
+                        padding: 0;
+                        border: unset;
+                        white-space: unset;
+                    }
+                }
+
+                &:last-child {
+                    align-items: flex-start;
+                    span {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .social-media {
+            flex-direction: row;
+        }
+    }
+}
